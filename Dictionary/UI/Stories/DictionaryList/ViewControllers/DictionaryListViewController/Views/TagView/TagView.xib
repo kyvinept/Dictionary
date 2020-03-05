@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TagView" customModule="Dictionary" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="DC5-PM-nBj" id="zbM-iA-VV9"/>
+                <outlet property="label" destination="4hb-Rg-TYc" id="clZ-oO-MTc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="288" height="72"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DC5-PM-nBj">
+                    <rect key="frame" x="4" y="4" width="280" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hb-Rg-TYc">
+                            <rect key="frame" x="124.5" y="25" width="31" height="14.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="4hb-Rg-TYc" firstAttribute="centerX" secondItem="DC5-PM-nBj" secondAttribute="centerX" id="2Pe-T8-c0t"/>
+                        <constraint firstItem="4hb-Rg-TYc" firstAttribute="centerY" secondItem="DC5-PM-nBj" secondAttribute="centerY" id="p8f-lz-AfD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="DC5-PM-nBj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="0BT-21-yPG"/>
+                <constraint firstItem="DC5-PM-nBj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ks3-wX-kze"/>
+                <constraint firstItem="DC5-PM-nBj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Kw6-te-TTN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DC5-PM-nBj" secondAttribute="bottom" constant="4" id="MUj-kc-d37"/>
+                <constraint firstItem="DC5-PM-nBj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="hve-K2-hgz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DC5-PM-nBj" secondAttribute="trailing" constant="4" id="iqN-DG-6n6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="46.376811594202906" y="-123.21428571428571"/>
+        </view>
+    </objects>
+</document>
