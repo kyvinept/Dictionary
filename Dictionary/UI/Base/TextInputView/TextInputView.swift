@@ -8,14 +8,76 @@
 
 import UIKit
 
-class TextInput: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class TextInputView: UIView {
+    
+    var updatedTextAction: ((_ text: String) -> ())?
+    var didEndEditing: ((_ text: String) -> ())?
+    
+    @IBOutlet fileprivate weak var label: UILabel!
+    @IBOutlet fileprivate weak var textField: UITextField!
+        
+    fileprivate var view: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupView()
     }
-    */
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setupView()
+    }
+    
+    func configure(with model: TextInputViewViewModel) {
+                
+        label.text = model.placeholder
+        textField.placeholder = ""
+    }
+    
+    func clear() {
+        textField.text = ""
+    }
+}
+
+fileprivate extension TextInputView {
+    
+    func setupView() {
+        
+        view = nibSetup()
+        configureTextField()
+    }
+    
+    func configureTextField() {
+        
+        textField.text = ""
+        textField.delegate = self
+    }
+}
+
+extension TextInputView: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let text = textField.text,
+           let textRange = Range(range, in: text) {
+           let updatedText = text.replacingCharacters(in: textRange,
+                                                    with: string)
+
+            updatedTextAction?(updatedText)
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        didEndEditing?(textField.text ?? "")
+    }
 }

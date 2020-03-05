@@ -1,7 +1,86 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Dictionary List View Controller-->
+        <scene sceneID="j0n-sN-eV0">
+            <objects>
+                <viewController storyboardIdentifier="DictionaryListViewController" id="e0r-YW-OW7" customClass="DictionaryListViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QSP-ym-Sd5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPt-Jl-ow2">
+                                <rect key="frame" x="-1" y="-1" width="416" height="46"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCr-Nz-l6D" customClass="NavigationBar" customModule="Dictionary" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="puT-xu-0Ai"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightButtonImage" value="plus_button"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightButtonContentInsert">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fi3-JB-zi2">
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UPt-Jl-ow2" firstAttribute="top" secondItem="QSP-ym-Sd5" secondAttribute="top" constant="-1" id="1ZM-jQ-icM"/>
+                            <constraint firstItem="rCr-Nz-l6D" firstAttribute="top" secondItem="uAF-3i-Xg0" secondAttribute="top" id="7Sr-Bf-VYD"/>
+                            <constraint firstItem="fi3-JB-zi2" firstAttribute="top" secondItem="rCr-Nz-l6D" secondAttribute="bottom" id="Hqc-ft-Uix"/>
+                            <constraint firstAttribute="trailing" secondItem="UPt-Jl-ow2" secondAttribute="trailing" constant="-1" id="JNK-dO-EX8"/>
+                            <constraint firstItem="uAF-3i-Xg0" firstAttribute="trailing" secondItem="rCr-Nz-l6D" secondAttribute="trailing" id="Nsr-Ku-Whx"/>
+                            <constraint firstItem="UPt-Jl-ow2" firstAttribute="leading" secondItem="QSP-ym-Sd5" secondAttribute="leading" constant="-1" id="PWT-Om-M6M"/>
+                            <constraint firstItem="rCr-Nz-l6D" firstAttribute="leading" secondItem="uAF-3i-Xg0" secondAttribute="leading" id="S5X-IS-ya2"/>
+                            <constraint firstAttribute="bottom" secondItem="fi3-JB-zi2" secondAttribute="bottom" id="bwE-xY-AyQ"/>
+                            <constraint firstItem="fi3-JB-zi2" firstAttribute="leading" secondItem="uAF-3i-Xg0" secondAttribute="leading" id="jIG-ZY-YwV"/>
+                            <constraint firstItem="uAF-3i-Xg0" firstAttribute="trailing" secondItem="fi3-JB-zi2" secondAttribute="trailing" id="oDP-at-pSb"/>
+                            <constraint firstItem="rCr-Nz-l6D" firstAttribute="top" secondItem="UPt-Jl-ow2" secondAttribute="bottom" constant="-1" id="zN0-vj-ZGu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uAF-3i-Xg0"/>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="rCr-Nz-l6D" id="D8i-Fq-wRe"/>
+                        <outlet property="topView" destination="UPt-Jl-ow2" id="Sds-GV-kay"/>
+                        <outlet property="wordsTableView" destination="fi3-JB-zi2" id="weh-2h-bri"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Gw-zm-mes" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237.68115942028987" y="61.607142857142854"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6jT-BR-iIe">
+            <objects>
+                <viewController id="IrR-Mp-udL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4av-OW-gsg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="oba-rK-n0V"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfY-1X-9G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="62"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus_button" width="32" height="32"/>
+    </resources>
 </document>

@@ -8,11 +8,19 @@
 
 import UIKit
 
-@IBDesignable class LargeContentView: UIView {
+@IBDesignable class NavigationBar: UIView {
     
     var rightButtonAction: (() -> ())?
+    var leftButtonAction: (() -> ())?
     
-    @IBOutlet fileprivate weak var settingsButton: UIButton!
+    override var backgroundColor: UIColor? {
+        didSet {
+            view?.backgroundColor = backgroundColor
+        }
+    }
+    
+    @IBOutlet fileprivate weak var rightButton: UIButton!
+    @IBOutlet fileprivate weak var leftButton: UIButton!
     @IBOutlet fileprivate weak var label: AccessibilityLabel!
     
     fileprivate var view: UIView!
@@ -27,13 +35,47 @@ import UIKit
     
     @IBInspectable var rightButtonText: String? {
         didSet {
-            settingsButton.setTitle(rightButtonText, for: .normal)
+            rightButton.setTitle(rightButtonText, for: .normal)
+            rightButton.isHidden = false
+        }
+    }
+    
+    @IBInspectable var rightButtonContentInsert: CGFloat = 0 {
+        didSet {
+            rightButton.contentEdgeInsets = UIEdgeInsets(top: rightButtonContentInsert,
+                                                        left: rightButtonContentInsert,
+                                                      bottom: rightButtonContentInsert,
+                                                       right: rightButtonContentInsert)
         }
     }
     
     @IBInspectable var rightButtonImage: UIImage? {
         didSet {
-            settingsButton.setImage(rightButtonImage, for: .normal)
+            rightButton.setImage(rightButtonImage, for: .normal)
+            rightButton.isHidden = false
+        }
+    }
+    
+    @IBInspectable var leftButtonText: String? {
+        didSet {
+            leftButton.setTitle(leftButtonText, for: .normal)
+            leftButton.isHidden = false
+        }
+    }
+       
+    @IBInspectable var leftButtonImage: UIImage? {
+        didSet {
+            leftButton.setImage(leftButtonImage, for: .normal)
+            leftButton.isHidden = false
+        }
+    }
+    
+    @IBInspectable var leftButtonContentInsert: CGFloat = 0 {
+        didSet {
+            leftButton.contentEdgeInsets = UIEdgeInsets(top: leftButtonContentInsert,
+                                                       left: leftButtonContentInsert,
+                                                     bottom: leftButtonContentInsert,
+                                                      right: leftButtonContentInsert)
         }
     }
     
@@ -53,9 +95,14 @@ import UIKit
         
         rightButtonAction?()
     }
+    
+    @IBAction func leftButtonTapped(_ sender: Any) {
+        
+        leftButtonAction?()
+    }
 }
 
-fileprivate extension LargeContentView {
+fileprivate extension NavigationBar {
     
     func setupView() {
         
@@ -69,21 +116,21 @@ fileprivate extension LargeContentView {
                                        image: UIImage(named: "house"),
                                     delegate: self)
         
-        settingsButton.enableLargeContentViewer(title: "Settings",
-                                                image: UIImage(named: "settings"),
-                                             delegate: nil)
+        rightButton.enableLargeContentViewer(title: "Plus",
+                                             image: Design.Image.plusButtonInCircle.uiImage,
+                                          delegate: nil)
         
         label.accessibilityLabel = title
         label.accessibilityTraits = .header
         
-        settingsButton.accessibilityLabel = "Settings"
-        settingsButton.accessibilityTraits = .button
-        settingsButton.accessibilityHint = "Will be opened settings screen"
-        settingsButton.accessibilityRespondsToUserInteraction = true
-        settingsButton.accessibilityUserInputLabels = ["settings", "settings button"]
+        rightButton.accessibilityLabel = "Plus"
+        rightButton.accessibilityTraits = .button
+        rightButton.accessibilityHint = "Will be opened add word screen"
+        rightButton.accessibilityRespondsToUserInteraction = true
+        rightButton.accessibilityUserInputLabels = ["plus", "add word", "plus button", "add word button"]
     }
 }
 
-extension LargeContentView: UILargeContentViewerInteractionDelegate {
+extension NavigationBar: UILargeContentViewerInteractionDelegate {
      
 }

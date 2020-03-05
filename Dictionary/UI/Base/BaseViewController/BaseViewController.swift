@@ -10,4 +10,21 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
+    @IBOutlet weak var topView: UIView?
+    @IBOutlet weak var navigationBar: NavigationBar?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureNavigationBarStyle()
+    }
+}
+
+fileprivate extension BaseViewController {
+    
+    func configureNavigationBarStyle() {
+        
+        navigationBar?.backgroundColor = Design.Color.white
+        topView?.backgroundColor = Design.Color.white
+    }
 }

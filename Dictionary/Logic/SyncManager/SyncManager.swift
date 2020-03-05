@@ -6,4 +6,63 @@
 //  Copyright © 2020 silchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class SyncManager {
+    
+    enum CustomNotification: String {
+        case didSynchronized
+    }
+    
+    fileprivate let keyStore = NSUbiquitousKeyValueStore.default
+    
+    init() {
+        keyStore.synchronize()
+        setupNotification()
+    }
+}
+
+extension SyncManager: SyncManagerProtocol {
+    
+    func save(word: Word) {
+        
+        keyStore.set(word.dictionary, forKey: word.foreign)
+        keyStore.synchronize()
+    }
+    
+    func getAllWords() -> [Word] {
+        
+        let dictionary = keyStore.dictionaryRepresentation
+        
+        var words = [Word]()
+        dictionary.forEach { (key: String, value: Any) in
+            
+            if let wordDictionary = value as? [String : Any],
+               let word = Word(dictionary: wordDictionary) {
+             
+                words.append(word)
+            }
+        }
+        
+        return words
+    }
+    
+    func remove(word: String) {
+        
+//        save(word: word, translatedWord: "")
+    }
+}
+
+fileprivate extension SyncManager {
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(SyncManager.iCloudWasUpdated),
+                                                   name: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
+                                                 object: NSUbiquitousKeyValueStore.default)
+    }
+    
+    @objc func iCloudWasUpdated() {
+        NotificationCenter.default.post(name: Notification.Name(CustomNotification.didSynchronized.rawValue), object: nil)
+    }
+}

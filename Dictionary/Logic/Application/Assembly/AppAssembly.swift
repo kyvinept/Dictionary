@@ -6,4 +6,57 @@
 //  Copyright © 2020 silchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension App {
+    
+    class Assembly {
+        
+        fileprivate let window: UIWindow
+        
+        fileprivate lazy var appRouter: App.Router = self.createAppRouter()
+        
+        fileprivate var syncManager: SyncManagerProtocol {
+            return self.createSyncManager()
+        }
+
+        required init(window: UIWindow) {
+
+            self.window = window
+        }
+    }
+}
+
+extension App.Assembly: AppAssemblyProtocol {
+    
+    func assemblyAppRouter() -> AppRouterProtocol { return appRouter }
+    func assemblyDictionaryListRouter() -> DictionaryListRouterProtocol { return self.createDictionaryListRouter() }
+    func assemblyDictionaryManageRouter() -> DictionaryManageRouterProtocol { return self.createDictionaryManageRouter() }
+    
+    func assemblySyncManager() -> SyncManagerProtocol { return self.syncManager }
+}
+
+fileprivate extension App.Assembly {
+
+    func createAppRouter() -> App.Router {
+        return App.Router(appAssembly: self)
+    }
+    
+    func createDictionaryListRouter() -> DictionaryListRouterProtocol {
+        
+        let assembly = UI.DictionaryList.Assembly(assembly: self)
+        return UI.DictionaryList.Router(assembly: assembly,
+                          dictionaryManageRouter: self.createDictionaryManageRouter())
+    }
+    
+    func createDictionaryManageRouter() -> DictionaryManageRouterProtocol {
+        
+        let assembly = UI.DictionaryManage.Assembly(assembly: self)
+        return UI.DictionaryManage.Router(assembly: assembly)
+    }
+    
+    func createSyncManager() -> SyncManager {
+        
+        return SyncManager()
+    }
+}

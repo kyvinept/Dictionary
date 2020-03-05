@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol AppAssemblyProtocol {
+    
+    func assemblyAppRouter() -> AppRouterProtocol
+    func assemblyDictionaryListRouter() -> DictionaryListRouterProtocol
+    
+    func assemblySyncManager() -> SyncManagerProtocol
+}

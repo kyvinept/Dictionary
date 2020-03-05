@@ -6,4 +6,11 @@
 //  Copyright © 2020 silchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol DictionaryListAssemblyProtocol {
+    
+    var syncManager: SyncManagerProtocol { get }
+    
+    func assemblyDictionaryListViewController(delegate: DictionaryListViewControllerDelegate) -> DictionaryListViewController
+}

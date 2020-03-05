@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="mac" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -8,19 +8,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LargeContentView" customModule="accessibility" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBar" customModule="Dictionary" customModuleProvider="target">
             <connections>
                 <outlet property="label" destination="ZcV-KV-EHQ" id="UPG-tS-cnQ"/>
-                <outlet property="settingsButton" destination="sok-Ka-PyF" id="Xi0-Xw-UwH"/>
+                <outlet property="leftButton" destination="PYF-Bk-CFe" id="1Tn-QK-oR5"/>
+                <outlet property="rightButton" destination="sok-Ka-PyF" id="RbL-9o-Odz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHf-g9-BTt">
             <rect key="frame" x="0.0" y="0.0" width="462" height="110"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcV-KV-EHQ" customClass="AccessibilityLabel" customModule="accessibility" customModuleProvider="target">
-                    <rect key="frame" x="58" y="33" width="352" height="44"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcV-KV-EHQ" customClass="AccessibilityLabel" customModule="Dictionary" customModuleProvider="target">
+                    <rect key="frame" x="60" y="33" width="350" height="44"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                     <color key="textColor" name="headerTitleColor"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
@@ -32,7 +33,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sok-Ka-PyF">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sok-Ka-PyF">
                     <rect key="frame" x="410" y="33" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="YVG-Sc-GCN"/>
@@ -42,25 +43,36 @@
                         <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="X8i-h1-Ui4"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYF-Bk-CFe">
+                    <rect key="frame" x="8" y="33" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Opk-Mw-3GQ"/>
+                        <constraint firstAttribute="width" constant="44" id="s2f-al-OpW"/>
+                    </constraints>
+                    <connections>
+                        <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="eaf-y7-a3j"/>
+                        <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="Vve-tN-SKe"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" name="headerBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="PYF-Bk-CFe" firstAttribute="leading" secondItem="bGg-yT-bCT" secondAttribute="leading" constant="8" id="8z7-vc-Z8e"/>
                 <constraint firstItem="sok-Ka-PyF" firstAttribute="centerY" secondItem="ZcV-KV-EHQ" secondAttribute="centerY" id="Cm8-hf-WL2"/>
                 <constraint firstItem="ZcV-KV-EHQ" firstAttribute="centerY" secondItem="qHf-g9-BTt" secondAttribute="centerY" id="DLQ-0i-qF1"/>
                 <constraint firstItem="sok-Ka-PyF" firstAttribute="height" secondItem="ZcV-KV-EHQ" secondAttribute="height" id="Dar-wb-8qv"/>
+                <constraint firstItem="ZcV-KV-EHQ" firstAttribute="leading" secondItem="PYF-Bk-CFe" secondAttribute="trailing" constant="8" symbolic="YES" id="OuN-ON-uap"/>
                 <constraint firstItem="sok-Ka-PyF" firstAttribute="leading" secondItem="ZcV-KV-EHQ" secondAttribute="trailing" id="Qxx-FH-ibU"/>
                 <constraint firstItem="bGg-yT-bCT" firstAttribute="trailing" secondItem="sok-Ka-PyF" secondAttribute="trailing" constant="8" id="SeF-cn-AL3"/>
-                <constraint firstItem="ZcV-KV-EHQ" firstAttribute="leading" secondItem="qHf-g9-BTt" secondAttribute="leading" constant="58" id="ccT-ps-Wmo"/>
+                <constraint firstItem="ZcV-KV-EHQ" firstAttribute="height" secondItem="PYF-Bk-CFe" secondAttribute="height" id="apU-wU-NwV"/>
+                <constraint firstItem="ZcV-KV-EHQ" firstAttribute="centerY" secondItem="PYF-Bk-CFe" secondAttribute="centerY" id="its-6U-oGH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="bGg-yT-bCT"/>
-            <point key="canvasLocation" x="240.57971014492756" y="-267.85714285714283"/>
+            <point key="canvasLocation" x="240" y="-268"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="headerBackgroundColor">
-            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="headerTitleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

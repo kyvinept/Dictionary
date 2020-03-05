@@ -6,4 +6,11 @@
 //  Copyright © 2020 silchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol AppRouterProtocol {
+    
+    var appAssembly: AppAssemblyProtocol { get }
+    
+    func show(from window: UIWindow)
+}

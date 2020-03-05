@@ -6,4 +6,11 @@
 //  Copyright © 2020 silchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIStoryboard {
+
+    func viewController<T>(named: String) -> T {
+        return self.instantiateViewController(withIdentifier: named) as! T
+    }
+}

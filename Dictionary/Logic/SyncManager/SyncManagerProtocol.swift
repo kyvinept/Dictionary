@@ -6,4 +6,11 @@
 //  Copyright © 2020 silchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol SyncManagerProtocol {
+    
+    func save(word: Word)
+    func remove(word: String)
+    func getAllWords() -> [Word]
+}

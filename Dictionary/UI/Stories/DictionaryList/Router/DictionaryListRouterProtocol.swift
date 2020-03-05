@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol DictionaryListRouterProtocol: class {
+
+    func show(method: Navigation.Method,
+            animated: Bool,
+          completion: @escaping VoidBlock)
+
+    func hide(animated: Bool, completion: VoidBlock?)
+}

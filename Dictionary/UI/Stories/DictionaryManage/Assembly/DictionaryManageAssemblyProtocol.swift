@@ -6,4 +6,11 @@
 //  Copyright © 2020 silchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol DictionaryManageAssemblyProtocol {
+    
+    var syncManager: SyncManagerProtocol { get }
+    
+    func assemblyAddWordViewController(delegate: AddWordViewControllerDelegate) -> AddWordViewController
+}

@@ -10,8 +10,13 @@ import UIKit
 
 extension UITableView {
     
-    func cell<T>(withIdentifier: String) -> T {
+    func cell<T: UITableViewCell>(withIdentifier identifier: String) -> T {
         
-        let cell = self.deq
+        var cell = self.dequeueReusableCell(withIdentifier: identifier) as? T
+        if cell == nil {
+            cell = T(style: .default, reuseIdentifier: identifier)
+        }
+        
+        return cell!
     }
 }

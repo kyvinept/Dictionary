@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+extension UI.DictionaryManage.Router {
+    
+    enum `Type` {
+        case add
+    }
+}
+
+protocol DictionaryManageRouterProtocol: class {
+
+    func show(type: UI.DictionaryManage.Router.`Type`,
+            method: Navigation.Method,
+          animated: Bool,
+        completion: @escaping VoidBlock)
+
+    func hide(animated: Bool, completion: VoidBlock?)
+}

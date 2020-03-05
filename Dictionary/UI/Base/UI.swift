@@ -10,7 +10,8 @@ import UIKit
 
 struct UI {
     
-    struct s {}
+    struct DictionaryList {}
+    struct DictionaryManage {}
 }
 
 struct Navigation {
