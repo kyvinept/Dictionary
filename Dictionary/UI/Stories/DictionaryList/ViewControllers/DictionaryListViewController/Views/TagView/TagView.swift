@@ -19,7 +19,7 @@ class TagView: UIView {
     
     fileprivate let widthOffsetToLabel: CGFloat = 24
     fileprivate let heightOffsetToLabel: CGFloat = 20
-
+    
     init(labelFrame frame: CGRect) {
         
         let newFrame = CGRect(origin: frame.origin,
@@ -45,10 +45,12 @@ class TagView: UIView {
     }
     
     func configure(with model: TagViewViewModel) {
-        
+                
         label.text = model.name
         label.font = UIFont.preferredFont(forTextStyle: model.textStyle)
         contentView.layer.cornerRadius = labelFrame.height / 10 + 5
+        
+        setupAccessibility(with: model)
     }
 }
 
@@ -57,5 +59,10 @@ fileprivate extension TagView {
     func setupView() {
         
         view = nibSetup()
+    }
+    
+    func setupAccessibility(with model: TagViewViewModel) {
+        
+        contentView.accessibilityLabel = "tag: \(model.name)"
     }
 }

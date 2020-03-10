@@ -22,16 +22,26 @@
                     <rect key="frame" x="4" y="4" width="280" height="64"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hb-Rg-TYc">
-                            <rect key="frame" x="124.5" y="25" width="31" height="14.5"/>
+                            <rect key="frame" x="8" y="8" width="264" height="48"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <bool key="isElement" value="NO"/>
+                            </accessibility>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
                     <constraints>
                         <constraint firstItem="4hb-Rg-TYc" firstAttribute="centerX" secondItem="DC5-PM-nBj" secondAttribute="centerX" id="2Pe-T8-c0t"/>
+                        <constraint firstAttribute="bottom" secondItem="4hb-Rg-TYc" secondAttribute="bottom" constant="8" id="auj-6B-9BO"/>
+                        <constraint firstItem="4hb-Rg-TYc" firstAttribute="top" secondItem="DC5-PM-nBj" secondAttribute="top" constant="8" id="avd-3p-ouH"/>
                         <constraint firstItem="4hb-Rg-TYc" firstAttribute="centerY" secondItem="DC5-PM-nBj" secondAttribute="centerY" id="p8f-lz-AfD"/>
+                        <constraint firstAttribute="trailing" secondItem="4hb-Rg-TYc" secondAttribute="trailing" constant="8" id="shE-e3-Sk1"/>
+                        <constraint firstItem="4hb-Rg-TYc" firstAttribute="leading" secondItem="DC5-PM-nBj" secondAttribute="leading" constant="8" id="wWM-br-2K6"/>
                     </constraints>
                 </view>
             </subviews>

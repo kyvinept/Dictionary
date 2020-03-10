@@ -40,7 +40,7 @@ extension UIView {
         largeContentImage = image
     }
     
-    func configureTagsView(withTags tags: [Tag], textStyle: UIFont.TextStyle) -> CGFloat {
+    func configureTagsView(withTags tags: [Tag], textStyle: UIFont.TextStyle, completion: ((_ tag: Tag) -> ())?) -> CGFloat {
         
         var x: CGFloat = 0
         var y: CGFloat = 0
@@ -55,6 +55,10 @@ extension UIView {
             
             let tagView = TagView(labelFrame: label.frame)
             tagView.configure(with: TagViewViewModel(name: tag.name, textStyle: textStyle))
+            
+            tagView.viewTapped = {
+                completion?(tag)
+            }
             
             if self.frame.width - x < tagView.frame.width {
                 x = 0

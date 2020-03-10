@@ -8,9 +8,17 @@
 
 import UIKit
 
-protocol SyncManagerProtocol {
+protocol SyncManagerProtocol: SyncManagerWordProtocol, SyncManagerTagProtocol {}
+
+protocol SyncManagerWordProtocol {
     
     func save(word: Word)
     func remove(word: String)
     func getAllWords() -> [Word]
+}
+
+protocol SyncManagerTagProtocol {
+    
+    func save(tag: Tag)
+    func getAllTags() -> [Tag]
 }

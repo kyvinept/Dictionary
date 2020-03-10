@@ -10,22 +10,26 @@ import Foundation
 
 struct Word {
     
+    var id: String
     var foreign: String
     var translated: String
     var tags: [Tag]
     
     var dictionary: [String: Any] {
         return [
-            "foreign": foreign,
-            "translated": translated,
-            "tags": tags.map({ $0.dictionary })
+            "id":           id,
+            "foreign":      foreign,
+            "translated":   translated,
+            "tags":         tags.map({ $0.dictionary })
         ]
     }
     
-    init(foreign: String,
-         translated: String,
-         tags: [Tag]) {
+    init(id: String,
+    foreign: String,
+ translated: String,
+       tags: [Tag]) {
         
+        self.id = id
         self.foreign = foreign
         self.translated = translated
         self.tags = tags
@@ -33,7 +37,8 @@ struct Word {
     
     init?(dictionary: [String: Any]) {
         
-        guard let foreign = dictionary["foreign"] as? String,
+        guard let id = dictionary["id"] as? String,
+              let foreign = dictionary["foreign"] as? String,
               let translated = dictionary["translated"] as? String,
               let tagsDictionary = dictionary["tags"] as? [[String: Any]] else {
                 
@@ -50,6 +55,7 @@ struct Word {
             tags.append(tag)
         }
         
+        self.id = id
         self.foreign = foreign
         self.translated = translated
         self.tags = tags

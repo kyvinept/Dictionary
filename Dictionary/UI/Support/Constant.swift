@@ -10,4 +10,8 @@ import Foundation
 
 struct Constant {
     
+    struct AddWordScreen {
+        static let addModeTitle = "New word"
+        static let editModeTitle = "Edit word"
+    }
 }

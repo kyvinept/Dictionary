@@ -31,6 +31,9 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="rightButtonContentInsert">
                                         <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rightButtonAccessibilityRespondsToUserInteraction" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="rightButtonAccessibilityLabel" value="Add"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="rightButtonAccessibilityHint" value="Will be opened add word screen"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fi3-JB-zi2">
@@ -63,21 +66,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gw-zm-mes" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="237.68115942028987" y="61.607142857142854"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="6jT-BR-iIe">
-            <objects>
-                <viewController id="IrR-Mp-udL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4av-OW-gsg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="oba-rK-n0V"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pfY-1X-9G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="980" y="62"/>
         </scene>
     </scenes>
     <resources>

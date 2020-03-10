@@ -18,6 +18,9 @@
 		5B4B602A2411261B001B2F21 /* TagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4B60292411261B001B2F21 /* TagView.xib */; };
 		5B4B602C24112714001B2F21 /* TagViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B602B24112714001B2F21 /* TagViewViewModel.swift */; };
 		5B4B6030241148EF001B2F21 /* SelectTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B602F241148EF001B2F21 /* SelectTagViewController.swift */; };
+		5B4B603424129901001B2F21 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B6033241298FB001B2F21 /* SpeechManager.swift */; };
+		5B4B60362412990D001B2F21 /* SpeechManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B60352412990D001B2F21 /* SpeechManagerProtocol.swift */; };
+		5B4B603824129F53001B2F21 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B603724129F53001B2F21 /* String.swift */; };
 		5B8278A1240E8DD600ED60A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8278A0240E8DD600ED60A9 /* AppDelegate.swift */; };
 		5B8278A3240E8DD600ED60A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8278A2240E8DD600ED60A9 /* SceneDelegate.swift */; };
 		5B8278AA240E8DD800ED60A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8278A9240E8DD800ED60A9 /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 		5B4B60292411261B001B2F21 /* TagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagView.xib; sourceTree = "<group>"; };
 		5B4B602B24112714001B2F21 /* TagViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewViewModel.swift; sourceTree = "<group>"; };
 		5B4B602F241148EF001B2F21 /* SelectTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTagViewController.swift; sourceTree = "<group>"; };
+		5B4B6033241298FB001B2F21 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		5B4B60352412990D001B2F21 /* SpeechManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManagerProtocol.swift; sourceTree = "<group>"; };
+		5B4B603724129F53001B2F21 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5B82789D240E8DD600ED60A9 /* Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8278A0240E8DD600ED60A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B8278A2240E8DD600ED60A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +193,23 @@
 			path = SelectTagViewController;
 			sourceTree = "<group>";
 		};
+		5B4B603124114A1D001B2F21 /* AddWordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5B82790E240F9C2300ED60A9 /* AddWordViewController.swift */,
+			);
+			path = AddWordViewController;
+			sourceTree = "<group>";
+		};
+		5B4B6032241298E8001B2F21 /* SpeechManager */ = {
+			isa = PBXGroup;
+			children = (
+				5B4B6033241298FB001B2F21 /* SpeechManager.swift */,
+				5B4B60352412990D001B2F21 /* SpeechManagerProtocol.swift */,
+			);
+			path = SpeechManager;
+			sourceTree = "<group>";
+		};
 		5B827894240E8DD600ED60A9 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +272,7 @@
 		5B8278B7240E8F1400ED60A9 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				5B4B6032241298E8001B2F21 /* SpeechManager */,
 				5B8278FC240EB41700ED60A9 /* SyncManager */,
 				5B8278BC240E903C00ED60A9 /* Application */,
 			);
@@ -272,6 +296,7 @@
 				5B8278E8240E980300ED60A9 /* UIStoryboard.swift */,
 				5B8278EF240EAB4100ED60A9 /* UIView.swift */,
 				5B4B6009240FD30D001B2F21 /* UITableView.swift */,
+				5B4B603724129F53001B2F21 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,7 +391,6 @@
 		5B8278D6240E965E00ED60A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5B4B602E241148D0001B2F21 /* SelectTagViewController */,
 				5B4B602D241148A2001B2F21 /* DictionaryListViewController */,
 			);
 			path = ViewControllers;
@@ -462,7 +486,8 @@
 		5B827907240F9BE300ED60A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5B82790E240F9C2300ED60A9 /* AddWordViewController.swift */,
+				5B4B602E241148D0001B2F21 /* SelectTagViewController */,
+				5B4B603124114A1D001B2F21 /* AddWordViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -573,6 +598,7 @@
 			files = (
 				5B8278F0240EAB4100ED60A9 /* UIView.swift in Sources */,
 				5B8278F7240EABB000ED60A9 /* AccessibilityLabel.swift in Sources */,
+				5B4B603824129F53001B2F21 /* String.swift in Sources */,
 				5B4B6011240FF488001B2F21 /* TextInputViewViewModel.swift in Sources */,
 				5B82790F240F9C2300ED60A9 /* AddWordViewController.swift in Sources */,
 				5B8278E9240E980300ED60A9 /* UIStoryboard.swift in Sources */,
@@ -596,6 +622,7 @@
 				5B8278E3240E96CC00ED60A9 /* DictionaryListAssembly.swift in Sources */,
 				5B827918240FB2E700ED60A9 /* TextInputView.swift in Sources */,
 				5B827915240F9C5900ED60A9 /* DictionaryManagerRouterProtocol.swift in Sources */,
+				5B4B603424129901001B2F21 /* SpeechManager.swift in Sources */,
 				5B8278A3240E8DD600ED60A9 /* SceneDelegate.swift in Sources */,
 				5B4B602324111186001B2F21 /* Tag.swift in Sources */,
 				5B827904240EBA5700ED60A9 /* Word.swift in Sources */,
@@ -603,6 +630,7 @@
 				5B827913240F9C5100ED60A9 /* DictionaryManagerRouter.swift in Sources */,
 				5B8278E5240E96D700ED60A9 /* DictionaryListAssemblyProtocol.swift in Sources */,
 				5B82790B240F9C0400ED60A9 /* DictionaryManageAssembly.swift in Sources */,
+				5B4B60362412990D001B2F21 /* SpeechManagerProtocol.swift in Sources */,
 				5B8278D1240E951A00ED60A9 /* UI.swift in Sources */,
 				5B8278D3240E95C600ED60A9 /* UINavigationController.swift in Sources */,
 				5B4B60172410E917001B2F21 /* WordCell.swift in Sources */,

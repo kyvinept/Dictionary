@@ -12,6 +12,7 @@ extension UI.DictionaryManage.Router {
     
     enum `Type` {
         case add
+        case edit(word: Word)
     }
 }
 

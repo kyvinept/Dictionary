@@ -26,7 +26,16 @@ extension SyncManager: SyncManagerProtocol {
     
     func save(word: Word) {
         
-        keyStore.set(word.dictionary, forKey: word.foreign)
+        keyStore.set(word.dictionary, forKey: "[Word]: \(word.foreign)")
+        
+        word.tags.forEach({ save(tag: $0) })
+        
+        keyStore.synchronize()
+    }
+    
+    func save(tag: Tag) {
+        
+        keyStore.set(tag.dictionary, forKey: "[Tag]: \(tag.name)")
         keyStore.synchronize()
     }
     
@@ -45,6 +54,23 @@ extension SyncManager: SyncManagerProtocol {
         }
         
         return words
+    }
+    
+    func getAllTags() -> [Tag] {
+        
+        let dictionary = keyStore.dictionaryRepresentation
+        
+        var tags = [Tag]()
+        dictionary.forEach { (key: String, value: Any) in
+            
+            if let tagDictionary = value as? [String : Any],
+               let tag = Tag(dictionary: tagDictionary) {
+             
+                tags.append(tag)
+            }
+        }
+        
+        return tags
     }
     
     func remove(word: String) {

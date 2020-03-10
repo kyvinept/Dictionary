@@ -11,6 +11,7 @@ import UIKit
 protocol DictionaryListAssemblyProtocol {
     
     var syncManager: SyncManagerProtocol { get }
+    var speechManager: SpeechManagerProtocol { get }
     
     func assemblyDictionaryListViewController(delegate: DictionaryListViewControllerDelegate) -> DictionaryListViewController
 }

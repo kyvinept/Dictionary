@@ -15,6 +15,7 @@ extension UI.DictionaryList {
         fileprivate let assembly: AppAssemblyProtocol
         
         lazy var syncManager = assembly.assemblySyncManager()
+        lazy var speechManager = assembly.assemblySpeechManager()
 
         required init(assembly: AppAssemblyProtocol) {
 

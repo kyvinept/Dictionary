@@ -12,5 +12,9 @@ protocol DictionaryManageAssemblyProtocol {
     
     var syncManager: SyncManagerProtocol { get }
     
-    func assemblyAddWordViewController(delegate: AddWordViewControllerDelegate) -> AddWordViewController
+    func assemblyAddWordViewController(word: Word?,
+                                 isEditMode: Bool,
+                                   delegate: AddWordViewControllerDelegate) -> AddWordViewController
+    func assemblySelectTagViewController(tags: [Tag],
+                                     delegate: SelectTagViewControllerDelegate) -> SelectTagViewController
 }

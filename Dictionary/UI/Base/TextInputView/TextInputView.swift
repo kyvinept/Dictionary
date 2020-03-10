@@ -32,12 +32,24 @@ class TextInputView: UIView {
     
     func configure(with model: TextInputViewViewModel) {
                 
-        label.text = model.placeholder
+        label.text = model.topLabelText
+        textField.text = model.textFieldText
         textField.placeholder = ""
+    }
+    
+    func configureAccessibility(label: String) {
+        
+        textField.accessibilityLabel = label
     }
     
     func clear() {
         textField.text = ""
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        super.becomeFirstResponder()
+        
+        return textField.becomeFirstResponder()
     }
 }
 

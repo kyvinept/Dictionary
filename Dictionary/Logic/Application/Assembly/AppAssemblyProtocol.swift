@@ -14,4 +14,5 @@ protocol AppAssemblyProtocol {
     func assemblyDictionaryListRouter() -> DictionaryListRouterProtocol
     
     func assemblySyncManager() -> SyncManagerProtocol
+    func assemblySpeechManager() -> SpeechManagerProtocol
 }

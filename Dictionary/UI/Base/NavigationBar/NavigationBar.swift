@@ -28,8 +28,6 @@ import UIKit
     @IBInspectable var title: String? {
         didSet {
             label.text = title
-            
-            setupAccessibility()
         }
     }
     
@@ -56,6 +54,30 @@ import UIKit
         }
     }
     
+    @IBInspectable var rightButtonAccessibilityLabel: String? {
+        didSet {
+            rightButton.accessibilityLabel = rightButtonAccessibilityLabel
+        }
+    }
+    
+    @IBInspectable var rightButtonAccessibilityHint: String? {
+        didSet {
+            rightButton.accessibilityHint = rightButtonAccessibilityHint
+        }
+    }
+    
+    @IBInspectable var rightButtonAccessibilityRespondsToUserInteraction: Bool = true {
+        didSet {
+            rightButton.accessibilityRespondsToUserInteraction = rightButtonAccessibilityRespondsToUserInteraction
+        }
+    }
+    
+//    @IBInspectable var rightButtonAccessibilityUserInputLabels: [String] = [] {
+//        didSet {
+//            rightButton.accessibilityUserInputLabels = rightButtonAccessibilityUserInputLabels
+//        }
+//    }
+    
     @IBInspectable var leftButtonText: String? {
         didSet {
             leftButton.setTitle(leftButtonText, for: .normal)
@@ -79,6 +101,30 @@ import UIKit
         }
     }
     
+    @IBInspectable var leftButtonAccessibilityLabel: String? {
+        didSet {
+            leftButton.accessibilityLabel = leftButtonAccessibilityLabel
+        }
+    }
+    
+    @IBInspectable var leftButtonAccessibilityHint: String? {
+        didSet {
+            leftButton.accessibilityHint = leftButtonAccessibilityHint
+        }
+    }
+    
+    @IBInspectable var leftButtonAccessibilityRespondsToUserInteraction: Bool = true {
+        didSet {
+            leftButton.accessibilityRespondsToUserInteraction = leftButtonAccessibilityRespondsToUserInteraction
+        }
+    }
+    
+//    @IBInspectable var leftButtonAccessibilityUserInputLabels: [String] = [] {
+//        didSet {
+//            leftButton.accessibilityUserInputLabels = leftButtonAccessibilityUserInputLabels
+//        }
+//    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -89,6 +135,12 @@ import UIKit
         super.init(coder: aDecoder)
         
         setupView()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupAccessibility()
     }
     
     @IBAction func rightButtonTapped(_ sender: Any) {
@@ -113,21 +165,22 @@ fileprivate extension NavigationBar {
     func setupAccessibility() {
         
         view.enableLargeContentViewer(title: title,
-                                       image: UIImage(named: "house"),
-                                    delegate: self)
+                                      image: UIImage(named: "house"),
+                                   delegate: self)
         
-        rightButton.enableLargeContentViewer(title: "Plus",
-                                             image: Design.Image.plusButtonInCircle.uiImage,
+        leftButton.enableLargeContentViewer(title: leftButtonAccessibilityLabel,
+                                            image: leftButtonImage,
+                                         delegate: nil)
+        
+        rightButton.enableLargeContentViewer(title: rightButtonAccessibilityLabel,
+                                             image: rightButtonImage,
                                           delegate: nil)
         
         label.accessibilityLabel = title
         label.accessibilityTraits = .header
         
-        rightButton.accessibilityLabel = "Plus"
+        leftButton.accessibilityTraits = .button
         rightButton.accessibilityTraits = .button
-        rightButton.accessibilityHint = "Will be opened add word screen"
-        rightButton.accessibilityRespondsToUserInteraction = true
-        rightButton.accessibilityUserInputLabels = ["plus", "add word", "plus button", "add word button"]
     }
 }
 

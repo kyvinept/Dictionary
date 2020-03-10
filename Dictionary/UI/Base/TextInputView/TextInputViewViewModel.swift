@@ -10,5 +10,6 @@ import Foundation
 
 struct TextInputViewViewModel {
     
-    var placeholder: String
+    var topLabelText: String
+    var textFieldText: String?
 }

@@ -10,23 +10,30 @@ import Foundation
 
 struct Tag {
     
+    var id: String
     var name: String
     
     var dictionary: [String: Any] {
         return [
+            "id": id,
             "name": name
         ]
     }
     
-    init(name: String) {
+    init(id: String,
+       name: String) {
+        
+        self.id = id
         self.name = name
     }
     
     init?(dictionary: [String: Any]) {
-        guard let name = dictionary["name"] as? String else {
+        guard let id = dictionary["id"] as? String,
+              let name = dictionary["name"] as? String else {
             return nil
         }
         
+        self.id = id
         self.name = name
     }
 }

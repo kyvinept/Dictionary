@@ -13,10 +13,26 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var topView: UIView?
     @IBOutlet weak var navigationBar: NavigationBar?
     
+    var navigationBarHeight: CGFloat {
+        
+        guard let navigationBarHeight = navigationBar?.frame.height,
+              let topViewHeight = topView?.frame.height else {
+            return 0
+        }
+        
+        return navigationBarHeight + topViewHeight
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureNavigationBarStyle()
+    }
+    
+    func hideNavigationBar() {
+        
+        navigationBar?.isHidden = true
+        topView?.isHidden = true
     }
 }
 

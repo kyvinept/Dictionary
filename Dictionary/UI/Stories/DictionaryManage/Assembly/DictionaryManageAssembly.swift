@@ -25,12 +25,26 @@ extension UI.DictionaryManage {
 
 extension UI.DictionaryManage.Assembly: DictionaryManageAssemblyProtocol {
     
-    func assemblyAddWordViewController(delegate: AddWordViewControllerDelegate) -> AddWordViewController {
+    func assemblyAddWordViewController(word: Word?,
+                                 isEditMode: Bool,
+                                   delegate: AddWordViewControllerDelegate) -> AddWordViewController {
 
         let addWordVC = AddWordViewController.from(storyboard: storyboard)
         addWordVC.delegate = delegate
+        addWordVC.word = word
+        addWordVC.isEditMode = isEditMode
                         
         return addWordVC
+    }
+    
+    func assemblySelectTagViewController(tags: [Tag],
+                                     delegate: SelectTagViewControllerDelegate) -> SelectTagViewController {
+        
+        let selectTagVC = SelectTagViewController.from(storyboard: storyboard)
+        selectTagVC.delegate = delegate
+        selectTagVC.tags = tags
+        
+        return selectTagVC
     }
 }
 

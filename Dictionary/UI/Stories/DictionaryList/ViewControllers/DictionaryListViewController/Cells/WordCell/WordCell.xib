@@ -9,48 +9,76 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="WordCell" customModule="Dictionary" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="369" height="94"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="KGk-i7-Jjw" customClass="WordCell" customModule="Dictionary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="369" height="151"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="369" height="94"/>
+                <rect key="frame" x="0.0" y="0.0" width="369" height="151"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Q0-ml-HVA">
-                        <rect key="frame" x="0.0" y="0.0" width="369" height="94"/>
+                        <rect key="frame" x="0.0" y="0.0" width="369" height="151"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-mW-clM">
-                                <rect key="frame" x="8" y="8" width="353" height="20.5"/>
+                                <rect key="frame" x="60" y="6" width="301" height="48"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjG-Vx-154">
-                                <rect key="frame" x="8" y="28.5" width="353" height="20.5"/>
+                                <rect key="frame" x="8" y="62" width="301" height="44"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-y4-sFT">
-                                <rect key="frame" x="8" y="53" width="353" height="33"/>
+                                <rect key="frame" x="8" y="110" width="353" height="33"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="uce-lT-3gR"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gX9-r5-bB6">
+                                <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="AeB-Bf-aYR"/>
+                                    <constraint firstAttribute="width" constant="44" id="OZ3-yg-7XE"/>
+                                </constraints>
+                                <state key="normal" image="speaker"/>
+                                <connections>
+                                    <action selector="foreignSpeakerButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="n5y-xg-efq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LU-mt-kLJ">
+                                <rect key="frame" x="317" y="62" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="qqv-Of-rzI"/>
+                                    <constraint firstAttribute="width" constant="44" id="wRg-la-yYI"/>
+                                </constraints>
+                                <state key="normal" image="speaker"/>
+                                <connections>
+                                    <action selector="translatedSpeakerButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pKl-6g-kzh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="GjG-Vx-154" secondAttribute="trailing" constant="8" id="7le-5I-T0v"/>
-                            <constraint firstItem="gO2-mW-clM" firstAttribute="leading" secondItem="9Q0-ml-HVA" secondAttribute="leading" constant="8" id="JHj-iW-kfG"/>
+                            <constraint firstItem="gX9-r5-bB6" firstAttribute="top" secondItem="9Q0-ml-HVA" secondAttribute="top" constant="8" id="Hlr-XC-mgy"/>
+                            <constraint firstItem="6LU-mt-kLJ" firstAttribute="leading" secondItem="GjG-Vx-154" secondAttribute="trailing" constant="8" id="IU9-ya-u2M"/>
                             <constraint firstItem="rsH-y4-sFT" firstAttribute="top" secondItem="GjG-Vx-154" secondAttribute="bottom" constant="4" id="Jec-Yj-eSN"/>
-                            <constraint firstAttribute="trailing" secondItem="gO2-mW-clM" secondAttribute="trailing" constant="8" id="Kvy-Tt-XnL"/>
+                            <constraint firstItem="gO2-mW-clM" firstAttribute="centerY" secondItem="gX9-r5-bB6" secondAttribute="centerY" id="Jes-q7-dFM"/>
+                            <constraint firstItem="gX9-r5-bB6" firstAttribute="leading" secondItem="9Q0-ml-HVA" secondAttribute="leading" constant="8" id="ORZ-oj-PxR"/>
                             <constraint firstAttribute="trailing" secondItem="rsH-y4-sFT" secondAttribute="trailing" constant="8" id="VhR-j8-6W0"/>
                             <constraint firstItem="rsH-y4-sFT" firstAttribute="leading" secondItem="9Q0-ml-HVA" secondAttribute="leading" constant="8" id="Y2s-IW-faK"/>
-                            <constraint firstItem="gO2-mW-clM" firstAttribute="top" secondItem="9Q0-ml-HVA" secondAttribute="top" constant="8" id="ewh-W1-Za1"/>
+                            <constraint firstItem="6LU-mt-kLJ" firstAttribute="height" relation="lessThanOrEqual" secondItem="GjG-Vx-154" secondAttribute="height" id="YS5-bk-CSQ"/>
+                            <constraint firstItem="gO2-mW-clM" firstAttribute="leading" secondItem="gX9-r5-bB6" secondAttribute="trailing" constant="8" id="cPO-5P-aMs"/>
+                            <constraint firstItem="gO2-mW-clM" firstAttribute="height" relation="greaterThanOrEqual" secondItem="gX9-r5-bB6" secondAttribute="height" id="dZe-WY-NUe"/>
+                            <constraint firstItem="6LU-mt-kLJ" firstAttribute="centerY" secondItem="GjG-Vx-154" secondAttribute="centerY" id="fmp-i2-WH5"/>
                             <constraint firstItem="GjG-Vx-154" firstAttribute="leading" secondItem="9Q0-ml-HVA" secondAttribute="leading" constant="8" id="mVH-Um-ZRo"/>
-                            <constraint firstItem="GjG-Vx-154" firstAttribute="top" secondItem="gO2-mW-clM" secondAttribute="bottom" id="wJz-Yi-BOF"/>
+                            <constraint firstAttribute="trailing" secondItem="6LU-mt-kLJ" secondAttribute="trailing" constant="8" id="oMJ-kB-yHA"/>
+                            <constraint firstItem="6LU-mt-kLJ" firstAttribute="top" secondItem="gO2-mW-clM" secondAttribute="bottom" constant="8" symbolic="YES" id="sHM-oU-nAK"/>
                             <constraint firstAttribute="bottom" secondItem="rsH-y4-sFT" secondAttribute="bottom" constant="8" id="xXe-Po-Ovt"/>
+                            <constraint firstAttribute="trailing" secondItem="gO2-mW-clM" secondAttribute="trailing" constant="8" id="xYf-Qq-5SM"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -64,11 +92,16 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="foreignLabel" destination="gO2-mW-clM" id="c7n-j4-EXR"/>
+                <outlet property="foreignSpeakerButton" destination="gX9-r5-bB6" id="lVL-jJ-hBp"/>
                 <outlet property="tagsView" destination="rsH-y4-sFT" id="8ew-4C-NZ9"/>
                 <outlet property="tagsViewHeightConstraint" destination="uce-lT-3gR" id="dEv-ox-ydP"/>
                 <outlet property="translatedLabel" destination="GjG-Vx-154" id="moO-iM-fwH"/>
+                <outlet property="translatedSpeakerButton" destination="6LU-mt-kLJ" id="gCa-Fg-rJ0"/>
             </connections>
-            <point key="canvasLocation" x="152.89855072463769" y="166.74107142857142"/>
+            <point key="canvasLocation" x="152.89855072463769" y="185.82589285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="speaker" width="32" height="32"/>
+    </resources>
 </document>

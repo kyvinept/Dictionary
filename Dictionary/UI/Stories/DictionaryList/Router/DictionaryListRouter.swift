@@ -75,6 +75,27 @@ fileprivate extension UI.DictionaryList.Router {
 }
 
 extension UI.DictionaryList.Router: DictionaryListViewControllerDelegate {
+    
+    func dictionaryListViewController(_ viewController: DictionaryListViewController, didTappedSpeechButton text: String) {
+        
+        assembly.speechManager.speech(text: text)
+    }
+    
+    func dictionaryListViewController(_ viewController: DictionaryListViewController, didSelectWord word: Word) {
+        
+        guard let navigationController = viewController.navigationController else {
+            return
+        }
+        
+        dictionaryManageRouter.show(type: .edit(word: word),
+                                  method: .embedded(inside: navigationController),
+                                animated: true,
+                              completion: {
+                                
+            let wordsDictionary = self.assembly.syncManager.getAllWords()
+            self.dictionaryListViewController?.update(wordsDictionary: wordsDictionary)
+        })
+    }
  
     func dictionaryListViewControllerDidTappedPlusButton(_ viewController: DictionaryListViewController) {
         

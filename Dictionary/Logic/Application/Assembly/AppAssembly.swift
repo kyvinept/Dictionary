@@ -19,6 +19,10 @@ extension App {
         fileprivate var syncManager: SyncManagerProtocol {
             return self.createSyncManager()
         }
+        
+        fileprivate var speechManager: SpeechManagerProtocol {
+            return self.createSpeechManager()
+        }
 
         required init(window: UIWindow) {
 
@@ -34,6 +38,7 @@ extension App.Assembly: AppAssemblyProtocol {
     func assemblyDictionaryManageRouter() -> DictionaryManageRouterProtocol { return self.createDictionaryManageRouter() }
     
     func assemblySyncManager() -> SyncManagerProtocol { return self.syncManager }
+    func assemblySpeechManager() -> SpeechManagerProtocol { return self.speechManager }
 }
 
 fileprivate extension App.Assembly {
@@ -58,5 +63,10 @@ fileprivate extension App.Assembly {
     func createSyncManager() -> SyncManager {
         
         return SyncManager()
+    }
+    
+    func createSpeechManager() -> SpeechManager {
+        
+        return SpeechManager()
     }
 }

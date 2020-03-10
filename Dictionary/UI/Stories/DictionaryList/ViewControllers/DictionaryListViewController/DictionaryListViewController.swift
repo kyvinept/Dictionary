@@ -10,6 +10,8 @@ import UIKit
 
 protocol DictionaryListViewControllerDelegate: class {
     func dictionaryListViewControllerDidTappedPlusButton(_ viewController: DictionaryListViewController)
+    func dictionaryListViewController(_ viewController: DictionaryListViewController, didTappedSpeechButton text: String)
+    func dictionaryListViewController(_ viewController: DictionaryListViewController, didSelectWord word: Word)
 }
 
 class DictionaryListViewController: BaseViewController {
@@ -69,6 +71,13 @@ extension DictionaryListViewController: UITableViewDataSource {
             cell = WordCell(style: .default, reuseIdentifier: cellIdentifier)
         }
         
+        cell?.speechTextAction = { [weak self] text in
+            
+            guard let strongSelf = self else { return }
+            strongSelf.delegate?.dictionaryListViewController(strongSelf,
+                                                              didTappedSpeechButton: text)
+        }
+        
         cell?.configure(with: WordCellViewModel(foreignWord: wordsDictionary[indexPath.row].foreign,
                                              translatedWord: wordsDictionary[indexPath.row].translated,
                                                        tags: wordsDictionary[indexPath.row].tags))
@@ -79,4 +88,10 @@ extension DictionaryListViewController: UITableViewDataSource {
 
 extension DictionaryListViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        delegate?.dictionaryListViewController(self, didSelectWord: wordsDictionary[indexPath.row])
+    }
 }

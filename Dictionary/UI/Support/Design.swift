@@ -12,8 +12,9 @@ struct Design {
     
     struct Color {
         
-        static let navigationBarBackgroundColor = UIColor(named: "navigationBarBackgroundColor")
-        static let white = UIColor(named: "white")
+        static let navigationBarBackgroundColor = UIColor(named: "navigationBarBackgroundColor")!
+        static let white = UIColor(named: "white")!
+        static let transparentBlackColor = UIColor(named: "transparentBlackColor")!
     }
     
     enum Image {
